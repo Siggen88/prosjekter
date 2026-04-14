@@ -249,8 +249,7 @@ def badge_html(status):
 
 def project_card_html(p):
     img = (
-        f'<img class="proj-img" src="{p["img"]}" alt="{p["name"]}" '
-        f'onerror="this.parentElement.innerHTML=\'<div class=proj-img-placeholder>🏗️</div>\'">'
+        f'<img class="proj-img" src="{p["img"]}" alt="{p["name"]}">'
         if p.get("img") else
         '<div class="proj-img-placeholder">🏗️</div>'
     )
@@ -291,7 +290,7 @@ def project_card_html(p):
 # ── New project dialog ────────────────────────────────────────────────────────
 @st.dialog("Nytt prosjekt", width="large")
 def new_project_dialog():
-    with st.form("new_project_form", border=False):
+    with st.form("new_project_form"):
         c1, c2 = st.columns(2)
         name  = c1.text_input("Prosjektnavn *", placeholder="f.eks. Strandparken")
         sted  = c2.text_input("Sted *",         placeholder="f.eks. Lysaker, Bærum")
